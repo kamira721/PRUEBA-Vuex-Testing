@@ -88,18 +88,19 @@
 <script>
 import { mapGetters } from "vuex";
 import Swal from 'sweetalert2';
+
 export default {
-  name: 'Cards',
+  name: 'CardCharacter',
 
   data() {
     return {
       userName: '',
-      userComment: ''
+      userComment: '',
     }
   },
 
   computed: {
-      ...mapGetters(['sendCharacters'])
+      ...mapGetters(['sendCharacters']),
   },
 
   methods: {
@@ -144,6 +145,8 @@ export default {
           }
 
           this.$store.dispatch('saveOpinion', opinionObject);
+          this.userName = '',
+          this.userComment = '',
           // Redireccionando a la ruta 'opinions'
           this.$router.push('/opiniones');
       } 
